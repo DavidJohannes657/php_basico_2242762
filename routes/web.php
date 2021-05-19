@@ -45,7 +45,7 @@ Route::get('arreglos', function(){
     var_dump($estudiantes);
     echo "</pre>";
 });
-//arreglo multidimencional en php
+//arreglo multidimensional en php
 
 Route::get("paises",function(){
     $paises=["Colombia"=>[
@@ -70,17 +70,25 @@ Route::get("paises",function(){
 //en php no existe el problema de definir las variables como entero etc
 //concaenar pgar 2 cadenas de caracteres en php es con .
 // solo para recorrer arreglos en php foreach
-    foreach($paises as  $nombre => $pais){
-        echo "<pre>";
-        echo"<h1>$nombre</<h1>". "<br/>";
-        print_r($pais["capital"]. "<br/>");
-        print_r($pais["poblacion"]. "<br/>");
-        print_r($pais["moneda"]. "<br/>");
-        echo"</pre>";
-        echo "<hr />";
 
-    }
+
+
+
+    //Llamar a una vista
+    //con los datos
+    //levar datos a la vista->
+    // alias nombre con el que se reconocen los datos en la vista
+    return view("paises")->with("naciones",$paises);
+
+
+
 
 
 
 });
+
+Route::get('formulario_buscador', "ParacaidasController@formulario_buscador"); {
+
+}
+Route::post('buscar',"ParacaidasController@buscar" );
+
